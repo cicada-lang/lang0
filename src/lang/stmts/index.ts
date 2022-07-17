@@ -1,3 +1,3 @@
 export * from "./compute"
 export * from "./define"
-// export * from "./assert-equal"
+export * from "./assert-equal"

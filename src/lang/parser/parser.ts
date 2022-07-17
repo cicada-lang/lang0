@@ -33,6 +33,11 @@ function matchStmt(sexp: Sexp): Stmt {
       ({ name, exp }) => new Stmts.Define(matchSymbol(name), matchExp(exp)),
     ],
 
+    [
+      ["assert-equal", v("exp1"), v("exp2")],
+      ({ exp1, exp2 }) => new Stmts.AssertEqual(matchExp(exp1), matchExp(exp2))
+    ],
+
     [v("exp"), ({ exp }) => new Stmts.Compute(matchExp(exp))],
   ])
 }
