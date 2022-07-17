@@ -12,6 +12,10 @@ export abstract class Exp {
     return normal
   }
 
+  equal(that: Exp): boolean {
+    return this.normalize().alphaEqual(that.normalize())
+  }
+
   // abstract alphaEqual(ctx: AlphaCtx, that: Exp): boolean
 
   alphaEqual(that: Exp): boolean {

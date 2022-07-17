@@ -8,10 +8,10 @@ title: Normalization by Evaluation
 
 - `Neutral` & `NotYetValue`
 
-  - 在 evaluate Core 时候，表达式就被分成了两类，
-    其中与 intro rule 对应的，被 evaluate 成了 Value，
-    而与 elim rule 对应的，被 evaluate 成了 Neutral，
-    这些 Neutral 被「嵌入」在 NotYetValue 中，而重新成了 Value，
+  - 在 evaluate 时候，表达式就被分成了两类，
+    其中与 constructor（intro rule）对应的，被 evaluate 成了 Value，
+    而与 eliminator（elim rule）对应的，被 evaluate 成了 Neutral，
+    这些 Neutral 被「嵌入」在 NotYetValue 中，而重新成了 Value。
 
   - 当我们使用 NotYetValue 时，我们的 evaluate 其实就算是在可以进行 partial evaluation。
 
