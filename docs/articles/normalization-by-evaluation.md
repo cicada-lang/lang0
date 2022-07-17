@@ -19,7 +19,8 @@ title: Normalization by Evaluation
 
 - implement `(assert-equal)`
 
-- 因为 normal form 是用 equivalence 来定义的，而 equivalence 是就某个类型而言的。
+- 因为 normal form 是用 equivalence 来定义的，
+  而 equivalence 是就某个类型而言的。
 
 - untyped lambda calculus 中，
   用 reduction 所定义的 equivalence
@@ -72,6 +73,10 @@ title: Normalization by Evaluation
 
   注意 Bishop 对 proof 的定义是「主观的」。
 
+- 直觉主义的数学基础。
+
+  - 布劳维尔。
+
 # 用递归组合子，定义处理递归函数
 
 - introduce `Y` combinator
@@ -84,3 +89,4 @@ title: Normalization by Evaluation
 
 - we find that `(assert-equal)` can not be used on lambda term whose normal form is infinite
 - introduce `(fixpoint)` syntax keyword
+  - 类似 Coq `Fixpoint`
