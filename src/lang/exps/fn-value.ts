@@ -17,18 +17,8 @@ export class FnValue extends Value {
   readback(ctx: ReadbackCtx): Exp {
     const freshName = freshen(ctx.usedNames, this.name)
     ctx = ctx.useName(freshName)
-    const freshVariable = new Exps.NotYetValue(new Exps.VarNeutral(freshName))
-    const body = this.apply(freshVariable)
+    const arg = new Exps.NotYetValue(new Exps.VarNeutral(freshName))
+    const body = this.apply(arg)
     return new Exps.Fn(freshName, body.readback(ctx))
-  }
-
-  format(): string {
-    return (
-      `(lambda (${this.name}) ${this.body.format()})` + "\n" + this.env.format()
-    )
-  }
-
-  formatWithoutEnv(): string {
-    return `(lambda (${this.name}) ${this.body.format()})`
   }
 }
