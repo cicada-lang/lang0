@@ -11,4 +11,10 @@ export abstract class Exp {
     const normal = value.readback(ReadbackCtx.init())
     return normal
   }
+
+  // abstract alphaEqual(ctx: AlphaCtx, that: Exp): boolean
+
+  alphaEqual(that: Exp): boolean {
+    throw new Error("TODO")
+  }
 }

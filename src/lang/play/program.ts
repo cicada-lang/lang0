@@ -11,8 +11,16 @@ const code = `
 (define not (lambda (x) (if x false true)))
 
 (if true true false)
-(if true true)
-(if true)
+true
+
+;; (assert-equal
+;;   (if true true false)
+;;   true)
+
+(if true false true)
+
+;; (if true true)
+;; (if true)
 `
 
 run(code)
