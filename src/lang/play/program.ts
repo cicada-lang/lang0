@@ -13,9 +13,13 @@ const code = `
 (if true true false)
 true
 
-;; (assert-equal
-;;   (if true true false)
-;;   true)
+(assert-equal
+  (if true true false)
+  true)
+
+(assert-equal
+  (if false false true)
+  false)
 
 (if true false true)
 
