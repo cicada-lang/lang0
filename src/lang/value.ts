@@ -8,7 +8,6 @@ export abstract class Value {
   equal(that: Value): boolean {
     const thisNormal = this.readback(ReadbackCtx.init())
     const thatNormal = that.readback(ReadbackCtx.init())
-
     return thisNormal.alphaEqual(thatNormal)
   }
 }
