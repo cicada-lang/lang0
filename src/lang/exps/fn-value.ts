@@ -1,6 +1,9 @@
 import { Env } from "../env"
 import { Exp } from "../exp"
+import * as Exps from "../exps"
 import { Value } from "../value"
+import { ReadbackCtx } from "../readback"
+import { freshen } from "../freshen"
 
 export class FnValue extends Value {
   constructor(public name: string, public body: Exp, public env: Env) {
@@ -9,6 +12,14 @@ export class FnValue extends Value {
 
   apply(arg: Value): Value {
     return this.body.evaluate(this.env.extend(this.name, arg))
+  }
+
+  readback(ctx: ReadbackCtx): Exp {
+    const freshName = freshen(ctx.usedNames, this.name)
+    ctx = ctx.useName(freshName)
+    const freshVariable = new Exps.NotYetValue(new Exps.VarNeutral(freshName))
+    const body = this.apply(freshVariable)
+    return new Exps.Fn(freshName, body.readback(ctx))
   }
 
   format(): string {
