@@ -1,9 +1,9 @@
 import { Env } from "../env"
 import { Exp } from "../exp"
 import * as Exps from "../exps"
-import { Value } from "../value"
-import { ReadbackCtx } from "../readback"
 import { freshen } from "../freshen"
+import { ReadbackCtx } from "../readback"
+import { Value } from "../value"
 
 export class FnValue extends Value {
   constructor(public name: string, public body: Exp, public env: Env) {

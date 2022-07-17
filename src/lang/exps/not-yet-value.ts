@@ -1,8 +1,7 @@
 import { Exp } from "../exp"
-import * as Exps from "../exps"
-import { Value } from "../value"
 import { Neutral } from "../neutral"
 import { ReadbackCtx } from "../readback"
+import { Value } from "../value"
 
 export class NotYetValue extends Value {
   constructor(public neutral: Neutral) {
