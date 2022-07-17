@@ -1,6 +1,7 @@
 import { Env } from "./env"
 import { ReadbackCtx } from "./readback"
 import { Value } from "./value"
+import { AlphaCtx } from "./alpha-ctx"
 
 export abstract class Exp {
   abstract evaluate(env: Env): Value
@@ -13,12 +14,8 @@ export abstract class Exp {
   }
 
   equal(that: Exp): boolean {
-    return this.normalize().alphaEqual(that.normalize())
+    return this.normalize().alphaEqual(AlphaCtx.init(), that.normalize())
   }
 
-  // abstract alphaEqual(ctx: AlphaCtx, that: Exp): boolean
-
-  alphaEqual(that: Exp): boolean {
-    throw new Error("TODO")
-  }
+  abstract alphaEqual(ctx: AlphaCtx, that: Exp): boolean
 }
